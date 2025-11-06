@@ -14,14 +14,15 @@ const { title, description, pubDatetime, modDatetime, timezone } = data;
 
 const headerProps = {
   style: { viewTransitionName: slugifyStr(title) },
-  class: "text-lg font-medium decoration-dashed hover:underline",
+  class: "!text-lg font-medium text-accent",
 };
 ---
 
-<li class="my-6">
+<li class="my-4 thick-border-accent bracket-corners-strong hover-glow grid-hover cyberpunk-pop transition-all duration-300 relative">
+  <!-- accent now applied via border pseudo-elements; removed inline corner glyph -->
   <a
     href={getPath(id, filePath)}
-    class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
+    class="relative z-[1] block p-3 no-underline hover:no-underline focus-visible:outline-none group bg-background"
   >
     {
       variant === "h2" ? (
@@ -30,7 +31,7 @@ const headerProps = {
         <h3 {...headerProps}>{title}</h3>
       )
     }
+    <Datetime {pubDatetime} {modDatetime} {timezone} />
+    <p class="mt-1.5 relative z-10">{description}</p>
   </a>
-  <Datetime {pubDatetime} {modDatetime} {timezone} />
-  <p>{description}</p>
 </li>

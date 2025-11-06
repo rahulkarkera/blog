@@ -1,3 +1,67 @@
+/* Thicker border accent for cyberpunk pop */
+
+.thick-border-accent {
+  border: 1px solid rgba(225,16,28,0.28); /* light by default, stays same on hover */
+  position: relative;
+  background: transparent;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.12);
+  transition: box-shadow 0.25s ease;
+}
+
+/* Stronger L-bracket corners for cards */
+.bracket-corners-strong {
+  position: relative;
+  overflow: visible;
+}
+
+.bracket-corners-strong::before,
+.bracket-corners-strong::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  opacity: 0.6;
+}
+.bracket-corners-strong::before {
+  top: -3px;
+  left: -3px;
+  border-left: 2px solid rgba(225,16,28,0.85);
+  border-top: 2px solid rgba(225,16,28,0.85);
+  box-shadow: 0 0 6px rgba(225,16,28,0.25);
+  opacity: 1;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.bracket-corners-strong::after {
+  bottom: -3px;
+  right: -3px;
+  border-right: 2px solid rgba(225,16,28,0.85);
+  border-bottom: 2px solid rgba(225,16,28,0.85);
+  box-shadow: 0 0 6px rgba(225,16,28,0.25);
+  background: transparent;
+  z-index: 100;
+  opacity: 1;
+  pointer-events: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.thick-border-accent.bracket-corners-strong:hover::before,
+.thick-border-accent.bracket-corners-strong:focus-within::before,
+.thick-border-accent.bracket-corners-strong:has(a:focus-visible)::before,
+.thick-border-accent.bracket-corners-strong:has(a:active)::before,
+.thick-border-accent.bracket-corners-strong.is-selected::before {
+  border-left: 2px solid var(--accent);
+  border-top: 2px solid var(--accent);
+  box-shadow: 0 0 12px rgba(225,16,28,0.45);
+}
+.thick-border-accent.bracket-corners-strong:hover::after,
+.thick-border-accent.bracket-corners-strong:focus-within::after,
+.thick-border-accent.bracket-corners-strong:has(a:focus-visible)::after,
+.thick-border-accent.bracket-corners-strong:has(a:active)::after,
+.thick-border-accent.bracket-corners-strong.is-selected::after {
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  box-shadow: 0 0 12px rgba(225,16,28,0.45);
+}
 @import "tailwindcss";
 @import "./typography.css";
 
@@ -5,19 +69,19 @@
 
 :root,
 html[data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
-  --muted: #e6e6e6;
-  --border: #ece9e9;
+  --background: #F7F7F7;
+  --foreground: #181818;
+  --accent: #E1061C;
+  --muted: #e5e5e5;
+  --border: #d4d4d4;
 }
 
 html[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --muted: #343f60;
-  --border: #ab4b08;
+  --background: #181818;
+  --foreground: #F7F7F7;
+  --accent: #E1061C;
+  --muted: #1a1a1a;
+  --border: #E1061C;
 }
 
 @theme inline {
@@ -36,9 +100,15 @@ html[data-theme="dark"] {
   }
   html {
     @apply overflow-y-scroll scroll-smooth;
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
   body {
-    @apply flex min-h-svh flex-col bg-background font-mono text-foreground selection:bg-accent/75 selection:text-background;
+    @apply flex min-h-svh flex-col bg-background text-foreground selection:bg-accent/75 selection:text-background;
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0;
+    font-size: 1rem;
   }
   a,
   button {
@@ -58,12 +128,721 @@ html[data-theme="dark"] {
   @apply max-w-3xl;
 }
 
-.active-nav {
-  @apply underline decoration-wavy decoration-2 underline-offset-4;
-}
-
 /* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */
 /* Anything that has been anchored to should have extra scroll margin */
 :target {
   scroll-margin-block: 1rem;
+}
+
+/* Cyberpunk theme enhancements */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold tracking-tight;
+  /* font-family: 'Rajdhani', sans-serif; */
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+
+h1 {
+  @apply text-2xl md:text-3xl;
+  font-weight: 900;
+}
+
+h2 {
+  @apply text-xl md:text-2xl;
+  font-weight: 700;
+}
+
+/* Add subtle red glow effect on hover for links */
+a:hover {
+  text-shadow: 0 0 6px rgba(255, 0, 51, 0.4);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Better link styling for body text */
+.app-prose a {
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.app-prose a:hover {
+  text-shadow: 0 0 6px rgba(255, 0, 51, 0.4);
+}
+
+/* Accent border effect */
+.border-accent {
+  border-color: var(--accent) !important;
+}
+
+/* Custom scrollbar for light mode */
+html[data-theme="light"] *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+html[data-theme="light"] *::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+html[data-theme="light"] *::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+html[data-theme="light"] *::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Custom scrollbar for dark mode */
+html[data-theme="dark"] *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+html[data-theme="dark"] *::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+html[data-theme="dark"] *::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 0, 51, 0.3);
+}
+
+html[data-theme="dark"] *::-webkit-scrollbar-thumb:hover {
+  background: #ff3355;
+  box-shadow: 0 0 6px rgba(255, 0, 51, 0.6);
+}
+
+/* ========== MINIMALIST TECH AESTHETIC ========== */
+
+  /* Subtle underline effect */
+  .neon-underline {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .neon-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgb(var(--color-accent)), transparent);
+    box-shadow: 0 0 3px rgba(var(--color-accent), 0.3);
+    opacity: 0.5;
+  }
+
+/* Minimalist corner markers */
+ .corner-markers {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  opacity: 0.4;
+}
+.corner-markers::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--accent);
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.corner-markers::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-markers::after {
+  bottom: 0;
+  right: 0;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  border-top: none;
+}
+
+.corner-markers:hover::before,
+.corner-markers:hover::after {
+  opacity: 0.7;
+}
+
+/* Border drawing animation */
+@keyframes draw-border {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.draw-border {
+  position: relative;
+  border: 1px solid rgba(255, 0, 51, 0.2);
+  transition: all 0.3s ease;
+}
+
+.draw-border::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.draw-border:hover {
+  border-color: var(--accent);
+}
+
+.draw-border:hover::before {
+  opacity: 0.3;
+}
+
+/* Fade-in grid on hover */
+.grid-hover {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.grid-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 0, 51, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 51, 0.1) 1px, transparent 1px);
+  background-size: 15px 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.grid-hover:hover::before {
+  opacity: 1;
+}
+
+/* Tech label badge */
+  /* Tech badge labels */
+  .tech-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: rgba(var(--color-accent), 0.08);
+    border: 1px solid rgba(var(--color-accent), 0.2);
+    border-radius: 2px;
+    color: rgb(var(--color-accent));
+    box-shadow: 0 0 5px rgba(var(--color-accent), 0.1);
+  }
+
+/* Vertical tech stripe */
+.vertical-stripe {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.vertical-stripe::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--accent) 20%,
+    var(--accent) 80%,
+    transparent 100%
+  );
+}
+
+.vertical-stripe::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 10%;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(255, 0, 51, 0.4);
+}
+
+/* Minimal scanline effect */
+@keyframes minimal-scan {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+.minimal-scan {
+  position: relative;
+  overflow: hidden;
+}
+
+.minimal-scan::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  animation: minimal-scan 3s ease-in-out infinite;
+}
+
+/* Simple dot indicator */
+.dot-indicator {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.dot-indicator::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+}
+
+/* Hover glow effect */
+.hover-glow {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Darken-on-hover overlay */
+.hover-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Invert highlight: darker on hover */
+.hover-glow:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme="light"] .hover-glow:hover::after {
+  opacity: 0.06;
+}
+
+html[data-theme="dark"] .hover-glow:hover::after {
+  opacity: 0.12;
+}
+
+/* Darker border on hover/focus/selection */
+.thick-border-accent:hover,
+.thick-border-accent:focus-within,
+.thick-border-accent:has(a:focus-visible),
+.thick-border-accent:has(a:active),
+.thick-border-accent.is-selected {
+  border-color: var(--accent);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.28), 0 0 0 1px rgba(225,16,28,0.5);
+}
+
+/* Minimal top accent */
+.top-accent {
+  position: relative;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.top-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-left: 3px solid var(--accent);
+  border-top: 3px solid var(--accent);
+}
+
+.hero-name {
+  font-size: 2.25rem !important; /* text-4xl */
+}
+
+@media (min-width: 640px) {
+  .hero-name {
+    font-size: 3rem !important; /* text-5xl */
+  }
+}
+
+/* Side panel effect */
+.side-panel {
+  position: relative;
+  padding: 1.5rem;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 51, 0.05) 0%,
+    transparent 5%
+  );
+  border-left: 1px solid var(--accent);
+}
+
+/* Thin border accent */
+.thin-border-accent {
+  border: 1px solid rgba(24,24,24,0.08); /* subtle neutral border */
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.2s ease;
+  background: transparent;
+}
+
+.thin-border-accent:hover {
+  border-color: rgba(225,16,28,0.35);
+  box-shadow: 0 6px 18px rgba(225,16,28,0.04);
+}
+
+/* top centered accent strip */
+.thin-border-accent::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6rem;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0.9;
+  box-shadow: 0 0 6px rgba(225,16,28,0.15);
+}
+
+/* right vertical accent */
+.thin-border-accent::after {
+  /* removed vertical right accent - keep border accents minimal */
+  display: none;
+}
+
+/* Navbar active state - cyberpunk style */
+.active-nav {
+  position: relative;
+}
+
+/* Menu button with tech effect */
+#menu-btn {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+#menu-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ========== GEOMETRIC SHAPES & DIAGONAL LINES ========== */
+
+/* Diagonal stripe background */
+.diagonal-stripes {
+  position: relative;
+  overflow: hidden;
+}
+
+.diagonal-stripes::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    rgba(255, 0, 51, 0.03) 40px,
+    rgba(255, 0, 51, 0.03) 42px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Corner geometric shapes */
+.geo-corners {
+  position: relative;
+}
+
+.geo-corners::before,
+.geo-corners::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--accent);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.geo-corners::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.geo-corners::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* Diagonal accent line */
+.diagonal-accent {
+  position: relative;
+  padding: 1.5rem;
+}
+
+.diagonal-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, transparent 48%, var(--accent) 48%, var(--accent) 52%, transparent 52%);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* Hexagon shape accent */
+.hex-accent {
+  position: relative;
+}
+
+.hex-accent::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 12px;
+  background: var(--accent);
+  opacity: 0.2;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+/* Triangle corner markers */
+.triangle-corners {
+  position: relative;
+  padding: 1rem;
+}
+
+.triangle-corners::before,
+.triangle-corners::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  opacity: 0.15;
+}
+
+.triangle-corners::before {
+  top: 0;
+  left: 0;
+  border-width: 15px 15px 0 0;
+  border-color: var(--accent) transparent transparent transparent;
+}
+
+.triangle-corners::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 0 15px 15px;
+  border-color: transparent transparent var(--accent) transparent;
+}
+
+/* L-bracket corners for cards */
+.bracket-corners {
+  position: relative;
+  overflow: visible;
+}
+
+.bracket-corners::before,
+.bracket-corners::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  opacity: 0.4;
+}
+
+.bracket-corners::before {
+  top: 0;
+  left: 0;
+  border-left: 2px solid var(--accent);
+  border-top: 2px solid var(--accent);
+}
+
+.bracket-corners::after {
+  /* L at bottom-right */
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-right: 3px solid var(--accent);
+  border-bottom: 3px solid var(--accent);
+  background: transparent;
+  z-index: 10;
+}
+
+/* removed .corner-l glyph (no inline corner shapes inside cards) */
+
+/* ========== GLITCH EFFECTS ========== */
+
+/* Text glitch effect */
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    opacity: 0.8;
+  }
+  40% {
+    transform: translate(2px, -2px);
+    opacity: 0.9;
+  }
+  60% {
+    transform: translate(-2px, -2px);
+    opacity: 0.85;
+  }
+  80% {
+    transform: translate(2px, 2px);
+    opacity: 0.95;
+  }
+}
+
+@keyframes glitch-color {
+  0%, 100% {
+    text-shadow: none;
+  }
+  25% {
+    text-shadow: -2px 0 0 rgba(255, 0, 51, 0.5), 2px 0 0 rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 2px 0 0 rgba(255, 0, 51, 0.5), -2px 0 0 rgba(0, 255, 255, 0.5);
+  }
+  75% {
+    text-shadow: -2px 0 0 rgba(0, 255, 255, 0.5), 2px 0 0 rgba(255, 0, 51, 0.5);
+  }
+}
+
+.glitch-hover {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text:hover {
+  animation: glitch-color 0.3s ease-in-out;
+}
+
+/* Subtle continuous glitch */
+@keyframes subtle-glitch {
+  0%, 90%, 100% {
+    transform: translate(0);
+  }
+  92% {
+    transform: translate(-1px, 1px);
+  }
+  94% {
+    transform: translate(1px, -1px);
+  }
+  96% {
+    transform: translate(-1px, 0);
+  }
+  98% {
+    transform: translate(1px, 0);
+  }
+}
+
+.glitch-subtle {
+  animation: subtle-glitch 5s ease-in-out infinite;
+}
+
+/* Glitch scanlines */
+@keyframes glitch-scan {
+  0%, 100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(100%);
+    opacity: 0.1;
+  }
+}
+
+.glitch-scanlines {
+  position: relative;
+  overflow: hidden;
+}
+
+.glitch-scanlines::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  animation: glitch-scan 3s linear infinite;
+  pointer-events: none;
+}
+
+/* RGB split effect on hover */
+.rgb-split {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.rgb-split:hover {
+  animation: glitch-color 0.5s ease-in-out;
+}
+
+#menu-btn svg {
+  transition: all 0.3s ease;
+}
+
+#menu-btn:hover svg {
+  stroke: var(--accent);
+  filter: drop-shadow(0 0 6px rgba(255, 0, 51, 0.6));
 }

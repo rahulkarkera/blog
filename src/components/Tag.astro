@@ -16,21 +16,31 @@ const { tag, tagName, size = "sm" } = Astro.props;
     size === "sm" ? "my-1 underline-offset-4" : "mx-1 my-3 underline-offset-8",
   ]}
 >
-  <a
+    <a
     href={`/tags/${tag}/`}
     transition:name={tag}
     class:list={[
-      "relative pe-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 focus-visible:no-underline",
-      { "text-sm": size === "sm" },
+      "relative !text-lg group-hover:text-accent focus-visible:no-underline !normal-case !font-medium tag-link",
+      { "!text-sm": size === "sm" },
     ]}
+    style="font-family: 'Work Sans', sans-serif !important; text-transform: none !important; font-weight: 500 !important; letter-spacing: 0 !important;"
   >
     <IconHash
       class:list={[
         "inline-block opacity-80",
-        { "-me-3.5 size-4": size === "sm" },
-        { "-me-5 size-6": size === "lg" },
+        { "size-4": size === "sm" },
+        { "size-6": size === "lg" },
       ]}
-    />
-    &nbsp;<span>{tagName}</span>
+    /><span>{tagName}</span>
   </a>
 </li>
+
+<style>
+  .tag-link {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.05em;
+    margin-inline-end: 0.5rem;
+  }
+</style>

@@ -22,10 +22,10 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 <Layout>
   <Header />
-  <main id="main-content" data-layout="index">
-    <section id="hero" class="pt-8 pb-6">
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
+  <main id="main-content" data-layout="index" class="relative pt-2 pb-6">
+    <section id="hero" class="pt-4 pb-4 hex-accent">
+      <h1 class="my-3 inline-block font-bold sm:my-4 top-accent pb-2 hero-name">
+        Rahul Karkera
       </h1>
       <a
         target="_blank"
@@ -43,25 +43,20 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       </a>
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        I'm a Senior Software Engineer at Infratab, where I build production-grade backend systems 
+        and cloud infrastructure. I specialize in designing scalable solutions using Python/Django, 
+        containerization with Kubernetes, and cloud deployments on Azure. My work focuses on creating 
+        robust APIs, optimizing distributed systems, and implementing CI/CD pipelines.
       </p>
       <p class="mt-2">
-        Read the blog posts or check
-        <LinkButton
-          class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
+        On this blog, I share insights on backend architecture, cloud-native development, DevOps best practices, 
+        and practical lessons from building scalable systems.
       </p>
       {
         // only display if at least one social link is enabled
         SOCIALS.length > 0 && (
-          <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
-            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
+          <div class="mt-3 flex flex-col sm:flex-row sm:items-center">
+            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Connect with me:</div>
             <Socials />
           </div>
         )
@@ -73,23 +68,26 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     {
       featuredPosts.length > 0 && (
         <>
-          <section id="featured" class="pt-12 pb-6">
-            <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
+          <section id="featured" class="pt-6 pb-4">
+            <div class="flex items-center gap-3 mb-3">
+              <h2 class="text-2xl font-semibold tracking-wide dot-indicator">Featured</h2>
+            </div>
             <ul>
               {featuredPosts.map(data => (
                 <Card variant="h3" {...data} />
               ))}
             </ul>
           </section>
-          {recentPosts.length > 0 && <Hr />}
         </>
       )
     }
 
     {
       recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
+        <section id="recent-posts" class="pt-6 pb-4">
+          <div class="flex items-center gap-3 mb-3">
+            <h2 class="text-2xl font-semibold tracking-wide dot-indicator">Recent Posts</h2>
+          </div>
           <ul>
             {recentPosts.map(
               (data, index) =>
@@ -100,7 +98,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       )
     }
 
-    <div class="my-8 text-center">
+    <div class="my-6 text-center">
       <LinkButton href="/posts/">
         All Posts
         <IconArrowRight class="inline-block rtl:-rotate-180" />

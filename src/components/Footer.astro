@@ -11,10 +11,23 @@ export interface Props {
 const { noMarginTop = false } = Astro.props;
 ---
 
-<footer class:list={["w-full", { "mt-auto": !noMarginTop }]}>
-  <Hr noPadding />
+<footer class:list={["w-full py-8", { "mt-auto": !noMarginTop }]}>
+  <!-- Top accent line with decorative elements -->
+  <div class="relative mx-auto max-w-app mb-4 px-4">
+    <!-- Main line -->
+    <div class="h-[2px] bg-accent opacity-40"></div>
+    <!-- L-shaped corners -->
+    <div class="absolute -top-2 left-0 w-3 h-3 border-l-[2px] border-t-[2px] border-accent opacity-40"></div>
+    <div class="absolute -top-2 right-0 w-3 h-3 border-r-[2px] border-t-[2px] border-accent opacity-40"></div>
+    <!-- Triple cubes in center -->
+    <!-- <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-1">
+      <div class="w-1 h-1 bg-accent"></div>
+      <div class="w-1 h-1 bg-accent"></div>
+      <div class="w-1 h-1 bg-accent"></div>
+    </div> -->
+  </div>
   <div
-    class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"
+    class="flex flex-col items-center justify-between sm:flex-row-reverse"
   >
     <Socials centered />
     <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">

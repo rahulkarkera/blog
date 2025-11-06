@@ -1,20 +1,35 @@
 @plugin '@tailwindcss/typography';
 
 @layer base {
+  /* Sharp corners for code blocks and inline code */
+  pre,
+  code,
+  .astro-code,
+  .highlighted-word {
+    border-radius: 0 !important;
+  }
+  
   /* ===== Override default Tailwind Typography styles ===== */
   .app-prose {
     @apply prose;
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
 
     h1,
     h2,
     h3,
     h4,
     th {
-      @apply mb-3 text-foreground;
+      @apply mb-2 text-foreground;
+      /* font-family: 'Rajdhani', sans-serif; */
+      font-family: 'Space Grotesk', sans-serif;
     }
 
     h3 {
       @apply italic;
+      font-style: normal;
+      font-weight: 700;
     }
 
     p,
@@ -26,9 +41,18 @@
     code {
       @apply text-foreground;
     }
+    
+    p {
+      margin-bottom: 1.25em;
+      font-weight: 400;
+    }
+    
+    strong {
+      font-weight: 600;
+    }
 
     a {
-      @apply break-words text-foreground decoration-dashed underline-offset-4 hover:text-accent focus-visible:no-underline;
+      @apply break-words text-foreground decoration-solid underline-offset-4 hover:text-accent focus-visible:no-underline;
     }
 
     ul {
@@ -67,11 +91,17 @@
     }
 
     code {
-      @apply rounded bg-muted/75 p-1 break-words text-foreground before:content-none after:content-none;
+      @apply bg-muted/75 break-words text-foreground before:content-none after:content-none;
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 0.9em;
+      border-radius: 0;
+      padding: 0.125rem 0.375rem;
+      margin: 0 0.125rem;
     }
 
     .astro-code code {
       @apply flex-[1_0_100%] bg-inherit p-0;
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
     }
 
     blockquote {
@@ -94,10 +124,16 @@
   /* ===== Code Blocks & Syntax Highlighting ===== */
   .astro-code {
     @apply flex border bg-(--shiki-light-bg) text-(--shiki-light) outline-border [&_span]:text-(--shiki-light);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    border-radius: 0 !important;
   }
 
   html[data-theme="dark"] .astro-code {
     @apply bg-(--shiki-dark-bg) text-(--shiki-dark) [&_span]:text-(--shiki-dark);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    border-radius: 0 !important;
   }
 
   /* Styles for Shiki transformers */
@@ -113,7 +149,8 @@
       @apply inline-block w-full bg-slate-400/20;
     }
     .highlighted-word {
-      @apply rounded-sm border border-border px-0.5 py-px;
+      @apply border border-border px-0.5 py-px;
+      border-radius: 0;
     }
   }
 }

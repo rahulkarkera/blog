@@ -3,7 +3,7 @@ export const SITE = {
   author: "Rahul Karkera",
   profile: "https://rhlk.pages.dev/",
   desc: "Senior Software Engineer building scalable solutions with Python, Django, Kubernetes & Azure. Sharing insights on software architecture, cloud, and DevOps.",
-  title: "RK_LOG",
+  title: "Rahul Karkera",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,

@@ -4,7 +4,6 @@ export const SITE = {
   profile: "https://rhlk.pages.dev/",
   desc: "Senior Software Engineer building scalable solutions with Python, Django, Kubernetes & Azure. Sharing insights on software architecture, cloud, and DevOps.",
   title: "RK_LOG",
-  tabTitle: "Rahul Karkera", // Used only for browser tab default
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,

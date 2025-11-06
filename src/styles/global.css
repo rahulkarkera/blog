@@ -633,23 +633,7 @@ html[data-theme="dark"] .hover-glow:hover::after {
   pointer-events: none;
 }
 
-/* Hexagon shape accent */
-.hex-accent {
-  position: relative;
-}
-
-.hex-accent::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: -30px;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 12px;
-  background: var(--accent);
-  opacity: 0.2;
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-}
+/* Removed hexagon shape accent */
 
 /* Triangle corner markers */
 .triangle-corners {

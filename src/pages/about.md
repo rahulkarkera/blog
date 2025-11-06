@@ -3,35 +3,40 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-AstroPaper is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+Hi, I'm **Rahul Karkera** — a Senior Software Engineer at [Infratab](https://github.com/Infratab) based in Mangalore, India.
 
-![Astro Paper](public/astropaper-og.jpg)
+I hold an M.Tech in Embedded and Wireless Technology and am passionate about building scalable, production-grade systems. As a self-taught developer in modern software design patterns, I've evolved from embedded systems to full-stack cloud-native development, focusing on backend architecture and infrastructure.
 
-AstroPaper provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+## 💼 What I Do at Infratab
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making AstroPaper a flexible starting point for your next content-driven site.
+At Infratab, I work on:
 
-## Features
+- **Backend Development**: Building robust REST APIs and microservices with Python and Django
+- **Cloud Infrastructure**: Designing and deploying scalable systems on Azure with Kubernetes
+- **DevOps & Automation**: Implementing CI/CD pipelines, infrastructure as code, and monitoring solutions
+- **Data Processing**: Building large-scale data pipelines with Apache Spark and managing lakehouse tables using Apache Iceberg
+- **System Architecture**: Optimizing performance, ensuring reliability, and scaling distributed systems
 
-AstroPaper comes with a set of useful features that make content publishing easy and effective:
+My work involves the entire lifecycle from design and implementation to deployment and maintenance of cloud-native applications.
 
-- SEO-friendly
-- Fast performance
-- Light & dark mode
-- Highly customizable
-- Organizable blog posts
-- Responsive & accessible
-- Static search with [PageFind](https://pagefind.app/)
-- Automatic social image generation
+## 🛠️ Tech Stack
 
-and so much more.
+- **Languages & Frameworks**: Python, Django, FastAPI, Apache Spark
+- **Cloud & Orchestration**: Azure, Kubernetes, Docker
+- **Databases**: PostgreSQL
+- **Task Queues & Messaging**: Celery, RabbitMQ
+- **DevOps Tools**: Git, CI/CD pipelines, monitoring & logging
+- **Architecture**: RESTful APIs, microservices, event-driven design
 
-## Show your support
+##  Get in Touch
 
-If you like [AstroPaper](https://github.com/satnaing/astro-paper), consider giving it a star ⭐️.
+Feel free to connect with me on:
+- [LinkedIn](https://www.linkedin.com/in/rahulkarkera)
+- [Twitter/X](https://twitter.com/rahulkarkera__)
+- [GitHub](https://github.com/rahulkarkera)
 
-Found a bug 🐛 or have an improvement ✨ in mind? Feel free to open an [issue](https://github.com/satnaing/astro-paper/issues), submit a [pull request](https://github.com/satnaing/astro-paper/pulls) or start a [discussion](https://github.com/satnaing/astro-paper/discussions).
+I'm always open to discussing software architecture, cloud technologies, or collaboration opportunities!
 
-If you find this theme helpful, you can also [sponsor me on GitHub](https://github.com/sponsors/satnaing) or [buy me a coffee](https://buymeacoffee.com/satnaing) to show your support — every penny counts.
+---
 
-Kyay zuu! 🙏🏼
+*This blog is built with [AstroPaper](https://github.com/satnaing/astro-paper), a minimal and SEO-friendly Astro blog theme.*
